@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const baseApi = "https://weeallo-env.eba-xgex53xi.ap-southeast-1.elasticbeanstalk.com/api/";
-const URL = "ws://realtimenode-env.eba-pnwam3yi.ap-southeast-1.elasticbeanstalk.com/";
+const URL = "https://realtimenode-env.eba-pnwam3yi.ap-southeast-1.elasticbeanstalk.com/";
 export { URL };
 export default {
   user(url = baseApi + "user/") {
