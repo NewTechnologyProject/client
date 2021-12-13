@@ -104,7 +104,7 @@ export default function MessageChat(props) {
     const formData = new FormData();
     formData.append("file", imageA);
     axios
-      .post("http://localhost:4000/api/storage/uploadFile?key=file", formData)
+      .post("https://weeallo-env.eba-xgex53xi.ap-southeast-1.elasticbeanstalk.com/api/storage/uploadFile?key=file", formData)
       .then((response) => {
         const typeOfFile = getType(response.data);
         if (isVideo(typeOfFile)) {

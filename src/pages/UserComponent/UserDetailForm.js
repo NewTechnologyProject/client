@@ -32,7 +32,7 @@ export default function UserDetail() {
   const [lastname, setLastName] = useState("");
   const [phone, setPhone] = useState("");
   const [selectedDate, setSelectedDate] = useState("");
-  const url = " http://localhost:4000/api/storage/uploadFile";
+  const url = " https://weeallo-env.eba-xgex53xi.ap-southeast-1.elasticbeanstalk.com/api/storage/uploadFile";
 
   const user = useSelector((state) => state.customer.userAuth);
   const profile = useSelector((state) => state.customer.userById);
