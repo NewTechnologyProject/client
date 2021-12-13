@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseApi = "http://weeallo-env.eba-xgex53xi.ap-southeast-1.elasticbeanstalk.com/api/";
+const baseApi = "https://weeallo-env.eba-xgex53xi.ap-southeast-1.elasticbeanstalk.com/api/";
 const URL = "ws://server-nodejs-demo.herokuapp.com/";
 export { URL };
 export default {
