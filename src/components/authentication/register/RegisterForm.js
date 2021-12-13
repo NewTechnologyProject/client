@@ -181,7 +181,7 @@ export default function RegisterForm() {
         console.log("OTP đã gởi");
       })
       .catch((error) => {
-        // Error; SMS not sent
+        console.log(error)
         console.log("SMS không được gởi");
         navigate("/register", { replace: true });
       });
