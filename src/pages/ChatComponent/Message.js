@@ -20,8 +20,11 @@ import Scrollbar from "src/components/Scrollbar";
 import axios from "axios";
 import { io } from "socket.io-client";
 import FileAlert from "./send-file-alert/FileAlert";
-import { URL } from "src/services/api.service"
+import { SOCKET_URL } from "src/services/api.service";
+
 // ----------------------------------------------------------------------
+
+const URL = SOCKET_URL;
 
 export default function MessageChat(props) {
   const dispatch = useDispatch();
@@ -103,8 +106,9 @@ export default function MessageChat(props) {
     const imageA = e.target.files[0];
     const formData = new FormData();
     formData.append("file", imageA);
-    axios
-      .post("https://weeallo-env.eba-xgex53xi.ap-southeast-1.elasticbeanstalk.com/api/storage/uploadFile?key=file", formData)
+
+    actions
+      .uploadAvatar(formData)
       .then((response) => {
         const typeOfFile = getType(response.data);
         if (isVideo(typeOfFile)) {
@@ -131,8 +135,9 @@ export default function MessageChat(props) {
     const imageA = e.target.files[0];
     const formData = new FormData();
     formData.append("file", imageA);
-    axios
-      .post("http://localhost:4000/api/storage/uploadFile?key=file", formData)
+
+    actions
+      .uploadAvatar(formData)
       .then((response) => {
         setSFile(response.data);
 
@@ -172,9 +177,11 @@ export default function MessageChat(props) {
   }, []);
 
   useEffect(() => {
+    let unmount = true;
     if (
       arrivalMessage &&
-      arrivalMessage.roomChatId.id === props.activeRoom.id
+      arrivalMessage.roomChatId.id === props.activeRoom.id &&
+      unmount
     ) {
       addMessage(arrivalMessage);
 
@@ -183,6 +190,10 @@ export default function MessageChat(props) {
         payload: arrivalMessage,
       });
     }
+
+    return () => {
+      unmount = false;
+    };
   }, [arrivalMessage, props.activeRoom]);
 
   useEffect(() => {
