@@ -55,7 +55,7 @@ export default function ListFriendChat(props) {
         neededRoom = { ...neededRoom, avatar: room.avatar };
       }
 
-      props.getActiveRoom(room, name);
+      props.getActiveRoom(room, name, room.avatar);
     }
   }, [props.updatedRoom]);
 
@@ -79,6 +79,25 @@ export default function ListFriendChat(props) {
     return name;
   };
 
+  //show avatar depend on group members
+  const showAvatarHandler = (roomId) => {
+    let avatar = "dummy.js";
+
+    if (listRooms.length > 0) {
+      const neededRoom = listRooms.find((room) => room.id === roomId);
+      if (neededRoom && neededRoom.userGroupList.length === 2) {
+        let groupAvatar =
+          neededRoom.userGroupList[0].id === Number(userId)
+            ? neededRoom.userGroupList[1].avartar
+            : neededRoom.userGroupList[0].avartar;
+
+        avatar = groupAvatar ? groupAvatar : "dummy.js";
+      }
+    }
+
+    return avatar;
+  };
+
   return (
     <Scrollbar
       sx={{
@@ -89,6 +108,12 @@ export default function ListFriendChat(props) {
         {props.listRooms &&
           props.listRooms.map((room) => {
             let name = room.roomName;
+            let avatar = room.avatar;
+
+            if (!avatar) {
+              avatar = showAvatarHandler(room.id);
+            }
+
             if (!name) {
               name = showNameHandler(room.id);
             }
@@ -96,13 +121,13 @@ export default function ListFriendChat(props) {
               <ListItem
                 button
                 key={room.id}
-                onClick={props.getActiveRoom.bind(null, room, name)}
+                onClick={props.getActiveRoom.bind(null, room, name, avatar)}
                 selected={props.activeRoom && room.id === props.activeRoom.id}
               >
                 <ListItemAvatar>
                   <Avatar
                     alt={name}
-                    src={room.avatar ? room.avatar : "dummy.js"}
+                    src={room.avatar ? room.avatar : avatar}
                   ></Avatar>
                 </ListItemAvatar>
                 <ListItemText

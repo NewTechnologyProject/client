@@ -37,7 +37,7 @@ const ListFriendSearch = (props) => {
                     <Avatar
                       className={classes["avatar-size-small"]}
                       alt={friend.firstname}
-                      src={"dummy.js"}
+                      src={friend.avartar ? friend.avartar : "dummy.js"}
                     ></Avatar>
                   </ListItemAvatar>
                   <ListItemText

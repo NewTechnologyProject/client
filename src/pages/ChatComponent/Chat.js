@@ -216,10 +216,10 @@ export default function Chat() {
     }
   }, [loadRoomsHandler, needLoad]);
 
-  const getActiveRoom = (room, name) => {
+  const getActiveRoom = (room, name, avatar) => {
     let newRoom = room;
     if (!room.roomName) {
-      newRoom = { ...room, roomName: name };
+      newRoom = { ...room, roomName: name, avatar: avatar };
     }
     setActiveRoom(newRoom);
     dispatch({ type: "ACTIVE ROOM", payload: newRoom });

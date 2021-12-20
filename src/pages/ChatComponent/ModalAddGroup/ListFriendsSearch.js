@@ -27,10 +27,12 @@ const ListFriendSearch = (props) => {
                     <Avatar
                       className={classes["avatar-size-small"]}
                       alt={friend.firstname}
-                      src={"dummy.js"}
+                      src={friend.avartar ? friend.avartar : "dummy.js"}
                     ></Avatar>
                   </ListItemAvatar>
-                  <ListItemText primary={`${friend.firstname} ${friend.lastname}`} />
+                  <ListItemText
+                    primary={`${friend.firstname} ${friend.lastname}`}
+                  />
                   <ListItemSecondaryAction>
                     <Checkbox
                       edge="end"

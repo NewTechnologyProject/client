@@ -140,7 +140,7 @@ const GroupChatMember = (props) => {
                   <ListItemIcon>
                     <Avatar
                       alt={ug.userId.firstname}
-                      src="dummy.js"
+                      src={ug.userId.avartar ? ug.userId.avartar : "dummy.js"}
                       className={classes["avatar-size-small"]}
                     />
                   </ListItemIcon>

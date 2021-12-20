@@ -32,10 +32,12 @@ const ChosenMember = (props) => {
                     <Avatar
                       className={classes["avatar-size-small"]}
                       alt={member.firstname}
-                      src={"dummy.js"}
+                      src={member.avartar ? member.avartar : "dummy.js"}
                     ></Avatar>
                   </ListItemAvatar>
-                  <ListItemText primary={`${member.firstname} ${member.lastname}`} />
+                  <ListItemText
+                    primary={`${member.firstname} ${member.lastname}`}
+                  />
                   <ListItemSecondaryAction>
                     <IconButton
                       aria-label="delete"
