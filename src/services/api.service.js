@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const baseApi = "https://springserverapp-env.eba-yux4bcmw.ap-southeast-1.elasticbeanstalk.com/api/";
-const URL = "https://noderealtime-env.eba-dmm2gxfs.ap-southeast-1.elasticbeanstalk.com/";
+const baseApi = "http://springserverapp-env.eba-yux4bcmw.ap-southeast-1.elasticbeanstalk.com/api/";
+const URL = "http://noderealtime-env.eba-dmm2gxfs.ap-southeast-1.elasticbeanstalk.com/";
 const SOCKET_URL = URL
 
 export { URL };
