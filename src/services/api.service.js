@@ -1,7 +1,9 @@
 import axios from "axios";
 
-const baseApi = "https://weeallo-env.eba-xgex53xi.ap-southeast-1.elasticbeanstalk.com/api/";
-const URL = "https://realtimenode-env.eba-pnwam3yi.ap-southeast-1.elasticbeanstalk.com/";
+const baseApi = "http://springserverapp-env.eba-yux4bcmw.ap-southeast-1.elasticbeanstalk.com/api/";
+// const URL = "https://realtimenode-env.eba-pnwam3yi.ap-southeast-1.elasticbeanstalk.com/";
+// const baseApi = 'http://localhost:5001/api/';
+const URL = "http://noderealtime-env.eba-dmm2gxfs.ap-southeast-1.elasticbeanstalk.com/";
 const SOCKET_URL = URL
 
 export { URL };
