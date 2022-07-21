@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseApi = "https://server-chat-appw.herokuapp.com/";
+const baseApi = "https://server-chat-appw.herokuapp.com/api/";
 const URL = "https://realtime-alo.herokuapp.com/";
 const SOCKET_URL = URL
 
